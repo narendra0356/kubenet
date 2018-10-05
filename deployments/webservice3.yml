@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webervice3-deployment
+  labels:
+    app: webervice3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webervice3
+  template:
+    metadata:
+      labels:
+        app: webervice3
+    spec:
+      containers:
+      - name: webervice3
+        image: narenit/rishi:webserver3
+        ports:
+        - containerPort: 80

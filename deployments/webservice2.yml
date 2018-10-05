@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webervice2-deployment
+  labels:
+    app: webervice2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webervice2
+  template:
+    metadata:
+      labels:
+        app: webervice2
+    spec:
+      containers:
+      - name: webervice2
+        image: narenit/rishi:webserver2
+        ports:
+        - containerPort: 80
