@@ -1,1 +1,0 @@
-/google/devshell/README-cloudshell.txt
