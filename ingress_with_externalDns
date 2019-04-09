@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: webservice
+    annotations:
+       kubernetes.io/ingress.class: nginx-external   # use the one that corresponds to your ingress controller.
+       external-dns.alpha.kubernetes.io/hostname: web1.naren.ga,web2.naren.ga,web3.naren.ga
+spec:
+  rules:
+  - host: web1.naren.ga
+    http:
+      paths:
+      - path: /
+        backend:
+           serviceName: webservice1
+           servicePort: 80
+  - host: web2.naren.ga
+    http:
+      paths:
+      - path: /
+        backend:
+           serviceName: webservice2
+           servicePort: 80
+  - host: web3.naren.ga
+    http:
+      paths:
+      - path: /
+        backend:
+           serviceName: webservice3
+           servicePort: 80
