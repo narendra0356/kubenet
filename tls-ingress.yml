@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: webservice1
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+  - hosts:
+    - webservice1.naren.ga
+    secretName: webservice1-secret
+  rules:
+  - host: webservice1.naren.ga
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-app
+          servicePort: 80
+   
+   

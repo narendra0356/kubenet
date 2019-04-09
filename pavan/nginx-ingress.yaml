@@ -1,0 +1,10 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotation:
+        kubernets.io/ingress.class: nginx      
+  name: nginx-ingress
+spec:
+  backend:
+    serviceName: nginx-svc
+    servicePort: 80

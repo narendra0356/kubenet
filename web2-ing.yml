@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: webservice2
+  #namespace: webservice2
+  annotations:
+    kubernetes.io/ingress.class: "naren-ingress"
+spec:
+  tls:
+  - hosts:
+  rules:
+  - host: webservice2.naren.ga
+    http:
+      paths:
+      - backend:
+          serviceName: webservice2
+          servicePort: 80
+
+
+   
+   
